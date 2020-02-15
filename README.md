@@ -35,7 +35,7 @@ for Machine Learning models [1]](https://arxiv.org/pdf/2001.11757.pdf).
 Installing through pip package manager:
 
 ```bash
-pip install lime_stability
+pip install lime-stability
 ```
 
 ### Prerequisites
