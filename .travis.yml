@@ -1,0 +1,13 @@
+language: python
+dist: bionic
+
+install:
+  - python -m pip install -U pip
+  - python -m pip install lime_stability
+
+before_script: echo Begin Unit Tests
+
+script:
+  - python lime_stability/tests.py
+  - echo Unit Tests are over
+
