@@ -1,13 +1,25 @@
 language: python
 dist: bionic
-
 install:
-  - python -m pip install -U pip
-  - python -m pip install lime_stability
-
+- python -m pip install -U pip
+- python -m pip install lime_stability
 before_script: echo Begin Unit Tests
-
 script:
-  - python lime_stability/tests.py
-  - echo Unit Tests are over
+- python lime_stability/tests.py
+- echo Unit Tests are over
+env:
+  global:
+  - secure: lJeLr+MWQ5VNMLJX3I1PyOlMKgQezvaT/vft8UfSL0PE8MxkjJ8vMlt0qr8Tqj+HQ3D1QAuyPrvTexacal2jT1NXQIM6zVx85kA654jYJ5QO1L4TMPedWr1ySuyziMp883UIYOxMWxFT+VE7D+R2lqd8lqdi5WVvVJbw+FYOBwLxjFKVVDn7d76K7GRZ6jbaSJGTsbo21iC/uqDUe3o5ViSbb9vU3aK+22f4Dvav5Sj82kkr21DQQ0tMy1ipb5uM0DTHMKmqGCEF9WQqxoNP3iiCzUeVee0oJdnrAB3lq5iO5hQNX+O5nqVJo6LEqi4xPn4vJ3zQmrQlrZstczQOjo6jyKMFL25vhyZGl0S638+dpGCFqj+BGDR7U0IL05iGXZW1LD3u2Gkxccr3ApIGQ/2vNgXl2PCM32nYkj0GgWmQXcDMai/B4nehagcAKpImZOQfRV3nP7scjDHg+4obaPdPNGymQLYTaezeo3d0vod1SNjTEDBvax7cFM7gMtqP05q6YlY8Y2ijkhGD+0Azu6/fWKX6J/9NWs6E8TZ3SuGRHptYRVSHQebQd/y5gOQSR2JeXbEXyhB8w8KTOE23BDq/BMtwzch0PFdb1pEis8bl+3JTdL/rOaCyHe8sLKSi9WGGUYJXk5Ngp2JAe7KiRm9Cgoc5Gh54+s48UF1KKz0=
+  - secure: loIG49kY8KK1+dOiwzJZ32nNsgq8QnMYk+QI2DwUlfaHjafpiDz/E6EAJzXayoEQT5yhbyNFVqSbmX3aTTcDcFeyi0OLpNL9nGJ/uFC4i7JlTmGH60mutzOIwbn/fVRaI+JBqAP6Hu/Lbg5pdVZs3Yqu0g/oqZOAz6PJz2pt4xGafaz7dSxxFFQFiWPJ/b55sTxtgv3sE1H5lxq4YpALqFMDVoUdpcXb5pVykZDr6ZbzQ7vd4E0agjTXQRri2wQTudA5n2idSyqaOul933ukZ3cG5BPhcqIka+HEDbaZstWQlcv9iRY2Gerd4hfhOhCCSVST+8/Vv5BtQBhThPgkdqDdzUnmFRtIBbjL6AMrLU/OJChepgYilLOKdPv6wO02b74RN4qpBZGCg3RqcebOZ7RA29jSRvLRAJJT083VrA/nUp/4JTpcKnswgcBqEmbYrViaV0BGqMOFzLpEBNRnZDShldTvBi36O5P5VGGXO8N73vBKWrxSwU3tqIZTTcRNoCZcbG+T7p27XefYHiEH9giCTdpivoHgv4+QkxDJxMOWxeezopfWwBr88F5xgXRHvK/t228UGo/lsm0rPYLGKrpxgrXKfwAPJGJQ7Osd9+UPaoiuJiMXaL81lZOySzTty9aKho1aNLxhEUG55GYCvEcIcqJwS0Cwl1BhRY1IdUo=
 
+before_deploy: 
+  - echo Starting deploy
+  - git config --local user.name "Giorgio Visani"
+deploy:
+  skip_cleanup: true
+  provider: pypi
+  user: $PYPI_USERNAME
+  password: $PYPI_PASSWORD
+  on:
+    tags: true
+    branch: master
