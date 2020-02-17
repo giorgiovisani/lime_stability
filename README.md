@@ -1,8 +1,11 @@
 # Stability Indices for LIME
 
-[![Build Status](https://travis-ci.org/giorgiovisani/lime_stability.svg?branch=master)](https://travis-ci.org/giorgiovisani/lime_stability?style=plastic)
+[![Build Status](https://travis-ci.org/giorgiovisani/lime_stability.svg?branch=master)](https://travis-ci.org/giorgiovisani/lime_stability)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/giorgiovisani/lime_stability/master)
 ![PyPI - License](https://img.shields.io/pypi/l/lime_stability?style=plastic)
 ![PyPI](https://img.shields.io/pypi/v/lime_stability?style=plastic)
+![PyPI - Downloads](https://img.shields.io/pypi/dw/lime-stability?style=plastic)
+
 
 This project is about measuring the stability of explanations obtained through the [LIME](https://github.com/marcotcr/lime) tool.
 
@@ -53,6 +56,10 @@ The stability indices in `lime_stability` are currently available only for tabul
 ## Authors
 
 * **Giorgio Visani**: [institutional page](https://www.unibo.it/sitoweb/giorgio.visani2/en)
+
+## Acknowldegments
+
+We would like to thank [CRIF S.p.A.](https://www.crif.com/) and [Università degli Studi di Bologna](https://www.unibo.it/en), which financially supported the project.
 
 
 
