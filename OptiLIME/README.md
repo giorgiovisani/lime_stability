@@ -1,6 +1,6 @@
 # OptiLIME: Optimal LIME Explanations
 
-Code and experiments used for the paper [OptiLIME: Optimized LIME Explanations for Diagnostic Computer Algorithms]().
+Code and experiments used for the paper [OptiLIME: Optimized LIME Explanations for Diagnostic Computer Algorithms](https://arxiv.org/pdf/2006.05714.pdf).
 
 ## LIME weakpoints
 
