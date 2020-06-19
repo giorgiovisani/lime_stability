@@ -84,6 +84,7 @@ class LimeBaseOvr(LimeBase):
                                                weights,
                                                num_features,
                                                feature_selection)
+        self.used_features = used_features
         if model_regressor is None:
             model_regressor = Ridge(alpha=1, fit_intercept=True,
                                     random_state=self.random_state)
@@ -174,7 +175,11 @@ class LimeTabularExplainerOvr(LimeTabularExplainer):
                                          weights=self.base.weights, alpha=self.base.alpha)
 
         beta_ridge = self.base.easy_model.coef_.tolist()
-        conf_int = refactor_confints_todict(means=beta_ridge, st_devs=stdevs_beta, feat_names=self.feature_names)
+
+        feature_ids = self.base.used_features
+        used_features = [self.feature_names[i] for i in feature_ids]
+
+        conf_int = refactor_confints_todict(means=beta_ridge, st_devs=stdevs_beta, feat_names=used_features)
 
         return conf_int
 

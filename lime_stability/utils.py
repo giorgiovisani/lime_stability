@@ -95,7 +95,8 @@ def compare_confints(confidence_intervals, index_verbose=False):
     for feat in unique_features:
         conf_int_feat = []
         for conf_int in confidence_intervals:
-            conf_int_feat.append(conf_int.get(feat))
+            if conf_int.get(feat):
+                conf_int_feat.append(conf_int.get(feat))
 
         if len(conf_int_feat) < 2:
             pass
