@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name='lime_stability',
-    version='0.0.2',
+    version='0.1.1',
     author="Giorgio Visani",
     author_email="giorgio.visani2@unibo.it",
     description="A package to evaluate Lime stability",
