@@ -20,7 +20,7 @@ from lime import explanation
 # from NHANES1.lime_stability_original.utils import refactor_confints_todict, compute_WLS_stdevs, compare_confints, LocalModelError
 from lime_stability.utils import refactor_confints_todict, compute_WLS_stdevs, compare_confints, LocalModelError
 
-
+ 
 class LimeBaseOvr(LimeBase):
     """Override of the original LimeBase class in lime_base"""
 
@@ -94,6 +94,8 @@ class LimeBaseOvr(LimeBase):
                                                weights,
                                                num_features,
                                                feature_selection)
+        self.used_features = used_features
+       
         if model_regressor is None:
             model_regressor = Ridge(alpha=self.penalty, fit_intercept=True,
                                     random_state=self.random_state)
@@ -459,8 +461,12 @@ class LimeTabularExplainerOvr(LimeTabularExplainer):
             return None
 
         beta_ridge = self.base.easy_model.coef_.tolist()
-        conf_int = refactor_confints_todict(means=beta_ridge, st_devs=stdevs_beta, feat_names=self.feature_names)
+        
+        feature_ids = self.base.used_features
+        used_features = [self.feature_names[i] for i in feature_ids]
 
+        conf_int = refactor_confints_todict(means=beta_ridge, st_devs=stdevs_beta, feat_names=used_features)
+        
         return conf_int
 
     def check_stability(self,
